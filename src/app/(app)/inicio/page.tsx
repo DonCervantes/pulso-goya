@@ -55,7 +55,11 @@ export default async function InicioPage() {
           <span className="text-lg font-bold">Mis contactos de ayuda</span>
           <p className="mt-1 text-sm text-[var(--color-text-secondary)]">Ver e invitar familia</p>
         </Link>
-        <Link href="/recomendaciones" className="rounded-2xl border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-5 sm:col-span-2">
+        <Link href="/dispositivo" className="rounded-2xl border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-5">
+          <span className="text-lg font-bold">Mi dispositivo</span>
+          <p className="mt-1 text-sm text-[var(--color-text-secondary)]">Vincular mi collar Pulso</p>
+        </Link>
+        <Link href="/recomendaciones" className="rounded-2xl border border-[var(--color-border-soft)] bg-[var(--color-surface)] p-5">
           <span className="text-lg font-bold">Recomendaciones para mí</span>
           <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
             Farmacias, hospitales y doctores cercanos

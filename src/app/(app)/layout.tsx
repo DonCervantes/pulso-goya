@@ -13,6 +13,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       { href: "/inicio", label: "Inicio" },
       { href: "/chequeo", label: "Chequeo" },
       { href: "/contactos", label: "Contactos" },
+      { href: "/dispositivo", label: "Dispositivo" },
       { href: "/recomendaciones", label: "Recomendaciones" },
     ],
     family: [{ href: "/familiar", label: "Alertas" }],
