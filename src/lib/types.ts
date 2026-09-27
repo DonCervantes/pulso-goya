@@ -152,6 +152,9 @@ export interface Place {
   phone?: string;
   zone: string;
   source: "seed" | "places";
+  lat?: number;
+  lng?: number;
+  distanceKm?: number; // calculado si hay ubicación del usuario
 }
 
 // Chequeo diario — índice pulso_daily_v1

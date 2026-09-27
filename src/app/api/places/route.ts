@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSession } from "@/lib/session";
-import { listPlaces } from "@/lib/store";
 import { isPlacesConfigured, searchNearby } from "@/lib/places";
+import { nearbyMock } from "@/lib/mock-places";
 import type { PlaceType } from "@/lib/types";
 
 const VALID: PlaceType[] = ["pharmacy", "hospital", "doctor"];
@@ -27,11 +27,12 @@ export async function GET(req: Request) {
       );
       return NextResponse.json({ source: "places", places: results.flat() });
     } catch (e) {
-      // Si Places falla, degradamos al seed en vez de romper.
-      console.error("[places] fallo, uso seed:", e instanceof Error ? e.message : e);
+      // Si Places falla, degradamos al mock en vez de romper.
+      console.error("[places] fallo, uso mock:", e instanceof Error ? e.message : e);
     }
   }
 
-  const seed = (await Promise.all(types.map((t) => listPlaces(t)))).flat();
-  return NextResponse.json({ source: "seed", places: seed });
+  // Mock: con coordenadas calcula distancia y ordena por cercanía.
+  const places = nearbyMock(types, hasCoords ? { lat, lng } : undefined);
+  return NextResponse.json({ source: "mock", places });
 }

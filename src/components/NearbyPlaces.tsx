@@ -11,7 +11,8 @@ const SECTIONS: { type: PlaceType; title: string; icon: string }[] = [
 
 export default function NearbyPlaces() {
   const [places, setPlaces] = useState<Place[]>([]);
-  const [source, setSource] = useState<"seed" | "places" | null>(null);
+  const [source, setSource] = useState<"seed" | "places" | "mock" | null>(null);
+  const [located, setLocated] = useState(false);
   const [busy, setBusy] = useState(false);
   const [geoError, setGeoError] = useState<string | null>(null);
 
@@ -20,9 +21,10 @@ export default function NearbyPlaces() {
     try {
       const q = coords ? `?lat=${coords.lat}&lng=${coords.lng}` : "";
       const res = await fetch(`/api/places${q}`);
-      const data = (await res.json()) as { source: "seed" | "places"; places: Place[] };
+      const data = (await res.json()) as { source: "seed" | "places" | "mock"; places: Place[] };
       setPlaces(data.places ?? []);
       setSource(data.source);
+      setLocated(!!coords);
     } finally {
       setBusy(false);
     }
@@ -55,7 +57,9 @@ export default function NearbyPlaces() {
         <p className="text-sm text-[var(--color-text-secondary)]">
           {source === "places"
             ? "Lugares reales cercanos a tu ubicación."
-            : "Lugares de ejemplo. Comparte tu ubicación para ver los cercanos reales."}
+            : located
+              ? "Lugares ordenados por cercanía a tu ubicación (demo)."
+              : "Comparte tu ubicación para ordenarlos por cercanía."}
         </p>
         <button
           onClick={useMyLocation}
@@ -81,7 +85,14 @@ export default function NearbyPlaces() {
               )}
               {items.map((p) => (
                 <li key={p.id} className="border-b border-[var(--color-border-soft)] pb-2 last:border-0">
-                  <p className="font-medium">{p.name}</p>
+                  <p className="font-medium">
+                    {p.name}
+                    {p.distanceKm != null && (
+                      <span className="ml-2 rounded-full bg-[var(--color-mint-soft)] px-2 py-0.5 text-xs font-semibold text-[var(--color-primary)]">
+                        a {p.distanceKm} km
+                      </span>
+                    )}
+                  </p>
                   <p className="text-sm text-[var(--color-text-secondary)]">
                     {p.address}
                     {p.zone ? ` · ${p.zone}` : ""}
