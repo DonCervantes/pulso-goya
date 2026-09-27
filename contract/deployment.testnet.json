@@ -1,0 +1,11 @@
+{
+  "network": "testnet",
+  "contractId": "CABVFOI7JX4NSOITTXQHQYYYTX5LNMVCFSINZINTEGMV5SOUITZBFJPV",
+  "wasmHash": "e66c4f2617609ef383c5ae5e836ce584631a086c1cff903fca19a9f39e856373",
+  "adminAddress": "GAQQI5GZT2GDDEM27UYTULBGXDS7BQDN2TRI6ZOORCPHRIQIMVFO5WHT",
+  "rpcUrl": "https://soroban-testnet.stellar.org",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "explorer": "https://stellar.expert/explorer/testnet/contract/CABVFOI7JX4NSOITTXQHQYYYTX5LNMVCFSINZINTEGMV5SOUITZBFJPV",
+  "deployedAt": "2026-09-27",
+  "notes": "La clave secreta de la cuenta de servicio (admin) NO se guarda aquí; va en STELLAR_SERVICE_SECRET en .env.local (gitignored). Rotar antes de producción."
+}

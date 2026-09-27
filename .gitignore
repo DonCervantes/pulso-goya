@@ -30,8 +30,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files (secrets stay local; the template IS committed)
 .env*
+!.env.example
+
+# scratch / local tooling
+/.claude
+.mcp.json
 
 # vercel
 .vercel

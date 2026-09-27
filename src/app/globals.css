@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────
+   Pulso — tokens de diseño (paleta con contraste WCAG AA)
+   Rojo = pedir ayuda / incidente. Ámbar = SIMULADO.
+   ───────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-background: #f7fafc;
+  --color-surface: #ffffff;
+  --color-text: #172b4d;
+  --color-text-secondary: #4b5563;
+  --color-primary: #0d5c63;
+  --color-primary-dark: #0a464c;
+  --color-danger: #b42318;
+  --color-danger-dark: #8f1c13;
+  --color-success: #146c43;
+  --color-warning: #b45309;
+  --color-warning-bg: #fef3c7;
+  --color-focus: #1d4ed8;
+  --color-border: #64748b;
+  --color-border-soft: #e2e8f0;
+  --color-mint: #a7e2d6;
+  --color-mint-soft: #d7efe8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-danger: var(--color-danger);
+  --color-danger-dark: var(--color-danger-dark);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-warning-bg: var(--color-warning-bg);
+  --color-focus: var(--color-focus);
+  --color-border: var(--color-border);
+  --color-border-soft: var(--color-border-soft);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Acento serif itálico para titulares de la landing */
+.accent {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Foco de teclado siempre visible (accesibilidad) */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
