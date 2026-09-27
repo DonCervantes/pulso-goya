@@ -7,7 +7,7 @@ recomendaciones de salud. Prototipo con piloto propuesto en **Ciudad de México*
 > ⚠️ **Prototipo.** Pulso **no** es una central de emergencias ni tiene convenio con autoridades.
 > El aviso automatizado a autoridades es **simulado**. En una urgencia real, llama al **911**.
 
-- 🔗 **Demo en vivo (Vercel):** **https://pulso-goya.vercel.app**
+- 🔗 **Demo en vivo (Vercel):** **https://pulso-goya.vercel.app** _(auto-deploy en cada push a `master`)_
 - 📦 **Repositorio:** https://github.com/DonCervantes/pulso-goya
 - 📄 **White paper / especificación:** [`docs/PULSO_MASTER_SPEC.md`](docs/PULSO_MASTER_SPEC.md)
 
