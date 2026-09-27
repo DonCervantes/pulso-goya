@@ -1,0 +1,16 @@
+# No subir a Vercel (Vercel instala deps y compila la app web):
+node_modules
+.next
+.git
+.vercel
+.claude
+
+# El contrato Rust y sus artefactos NO son parte del build web
+contract
+
+# Docs y SQL no se necesitan para el build
+docs
+supabase
+
+# Assets locales de tooling
+*.log
