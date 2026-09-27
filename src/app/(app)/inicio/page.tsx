@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
 import { getAmbulancesByIds, getTodayCheckin, listIncidentsForUser } from "@/lib/store";
 import PanicButton from "@/components/PanicButton";
+import AddToPhone from "@/components/AddToPhone";
 import { formatMx } from "@/lib/format";
 
 export default async function InicioPage() {
@@ -61,6 +62,8 @@ export default async function InicioPage() {
           </p>
         </Link>
       </div>
+
+      <AddToPhone />
     </div>
   );
 }

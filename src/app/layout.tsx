@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
@@ -25,6 +25,12 @@ export const metadata: Metadata = {
   title: "Pulso | Tu red de apoyo en dos toques",
   description:
     "Pulso conecta un botón de ayuda con tu red familiar y un chequeo diario de bienestar. Prototipo con piloto propuesto en CDMX.",
+  applicationName: "Pulso",
+  appleWebApp: { capable: true, title: "Pulso", statusBarStyle: "default" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0d5c63",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
